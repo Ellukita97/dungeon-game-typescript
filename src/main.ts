@@ -1,10 +1,14 @@
-import { renderScene } from "./code/sceneSystem/code/core.sceneSystem";
+import { initScenes } from "./code/initSystems.code";
+import { keyboard } from "./code/keyboard.code";
+import { mainLoop } from "./code/mainLoop.code";
+import "./style.css";
 
 const start = {
-  initializers: [],
   startGame: () => {
     console.log("juego iniciado");
-    renderScene()
+    mainLoop.iterate(0);
+    keyboard.start();
+    initScenes();
   },
 };
 

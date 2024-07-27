@@ -1,9 +1,11 @@
 import { States } from "../data/scene.state";
 import { router } from "../data/scene.routes";
+import { routeElement } from "../../config.ts";
 
 export function renderScene() {
   const scene = searchScene();
-  document.querySelector<HTMLDivElement>("#app")!.innerHTML = scene?.html ?? "";
+  document.querySelector<HTMLDivElement>(routeElement)!.innerHTML =
+    scene?.html ?? "";
   scene?.script();
 }
 

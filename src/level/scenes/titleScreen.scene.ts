@@ -1,4 +1,4 @@
-import { changeScene } from "../../code/sceneSystem/code/core.sceneSystem";
+import { changeScene } from "../../../core/sceneSystem/code/core.sceneSystem.ts";
 
 const imgTitle = `https://i.pinimg.com/originals/df/4d/cd/df4dcd70b731dca09baa261b51d3cc8d.jpg`;
 
@@ -20,7 +20,7 @@ export const titleScreenScene = {
     const buttonStart = document.getElementById("start");
 
     buttonStart?.addEventListener("click", () => {
-      changeScene("LEVEL1")
+      changeScene("LEVEL1");
     });
   },
 };

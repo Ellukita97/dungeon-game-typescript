@@ -43,7 +43,6 @@ export class gameObjectClass extends BoxClass {
   }
 
   addColliction(obj: BoxClass) {
-    console.log(this.colliction);
     this.colliction?.push(obj);
   }
 }

@@ -20,5 +20,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"]
+  "include": ["src", "core/mainLoop/mainLoop.code.ts", "core/gameObjectSystem/data/mapObjectsGame.ts", "src/data/controllerKeyboard.data.ts", "core/keyboard/keyboard.code.ts"]
 }

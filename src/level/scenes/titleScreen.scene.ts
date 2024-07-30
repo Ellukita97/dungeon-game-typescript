@@ -20,7 +20,7 @@ export const titleScreenScene = {
     const buttonStart = document.getElementById("start");
 
     buttonStart?.addEventListener("click", () => {
-      changeScene("LEVEL1");
+      changeScene("ROOM",1);
     });
   },
 };

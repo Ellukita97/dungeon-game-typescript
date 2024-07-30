@@ -39,7 +39,6 @@ export const generateGameObject = {
   ) {
     const { sprite, hitBox, colliction, zIndex } = gameObject;
     const gameObjectHTMLElement = generateBox.create(gameObject);
-    console.log(gameObjectHTMLElement);
     gameObjectHTMLElement.style.zIndex = zIndex;
 
     if (sprite != "") {

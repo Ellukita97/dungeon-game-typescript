@@ -1,4 +1,4 @@
-export const controllerKeys = {
+export let controllerKeys = {
   up: "w",
   down: "s",
   right: "a",

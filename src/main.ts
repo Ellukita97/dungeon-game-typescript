@@ -1,6 +1,6 @@
 import { initScenes } from "./code/initSystems.code";
-import { keyboard } from "./code/keyboard.code";
-import { mainLoop } from "./code/mainLoop.code";
+import { keyboard } from "../core/keyboard/keyboard.code";
+import { mainLoop } from "../core/mainLoop/mainLoop.code";
 import "./style.css";
 
 const start = {

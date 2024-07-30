@@ -1,5 +1,6 @@
 import { BoxClass } from "../../class/box.class";
 import { gameObjectClass } from "../../class/gameObject.class";
+import { currentsCollitions } from "../data/collision.state";
 
 export function squareCollisionBoxesRef(
   elementToSetCollicion: gameObjectClass,
@@ -12,12 +13,56 @@ export function squareCollisionBoxesRef(
   //add colliction to elementToSetCollicion
   Originalcolliction.map((col) => {
     elementToSetCollicion.addColliction(
+      new BoxClass("collition", col.type, col.x, col.y, col.width, col.height)
+    );
+  });
+
+  //align collitions
+  alignToTheSidesOfTheSquare(elementToSetCollicion);
+}
+
+export function squereCollectionCompleteSide(
+  elementToSetCollicion: gameObjectClass,
+  typeIdOfCollition: string,
+  widthCollition: number
+) {
+  const { width, height } = elementToSetCollicion;
+  const lengthSquereUp = width - widthCollition * 2;
+  const lengthSquereSide = height - widthCollition * 2;
+
+  const box1 = new BoxClass(
+    typeIdOfCollition,
+    "collition",
+    0,
+    0,
+    lengthSquereUp,
+    widthCollition
+  );
+  const box2 = new BoxClass(
+    typeIdOfCollition,
+    "collition",
+    0,
+    0,
+    widthCollition,
+    lengthSquereSide
+  );
+
+  //create shape of box colliction
+  const Originalcolliction = [box1, box2, box1, box2];
+
+  //add colliction to elementToSetCollicion
+  Originalcolliction.map((col) => {
+    elementToSetCollicion.addColliction(
       new BoxClass("1", col.type, col.x, col.y, col.width, col.height)
     );
   });
 
   //align collitions
   alignToTheSidesOfTheSquare(elementToSetCollicion);
+
+  elementToSetCollicion.colliction.map((col)=>{
+    currentsCollitions.push(col)
+  })
 }
 
 export function alignToTheSidesOfTheSquare(element: gameObjectClass) {

@@ -1,4 +1,3 @@
-import { keyboard } from "./keyboard.code";
 
 export const mainLoop = {
   idEjec: 0,
@@ -12,7 +11,6 @@ export const mainLoop = {
     }, 1000 / mainLoop.maxFps);
 
     mainLoop.actualizar();
-    mainLoop.dibujar();
 
     if (tempReg - mainLoop.lastReg > 999) {
       mainLoop.lastReg = tempReg;
@@ -25,7 +23,6 @@ export const mainLoop = {
     mainLoop.updateForFrameLoop();
     mainLoop.fps++;
   },
-  dibujar: () => {},
 };
 
 export function updateForFrame(callback: any) {

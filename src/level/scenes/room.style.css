@@ -1,3 +1,26 @@
+#map {
+  position: relative;
+  width: 800px;
+  height: 700px;
+  background-color: black;
+  overflow: hidden;
+}
+* {
+  background-size: cover;
+}
+*[id*="doorId"] {
+  z-index: 1000;
+}
+*[id*="player1"] {
+  z-index: 2000;
+  /*PARA QUITAR EN PRUEBAS*/
+  background-color: none !important;
+  overflow: hidden;
+}
+*[id*="player1"] div {
+  background-color: none!important;
+}
+
 *[id*="room"] {
   background-color: #311d34 !important;
 }

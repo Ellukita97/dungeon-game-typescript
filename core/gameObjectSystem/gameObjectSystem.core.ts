@@ -11,6 +11,7 @@ export function createGameObject(
   actor.type = atributesToCreateObject.type;
   actor.x = atributesToCreateObject.x
   actor.y = atributesToCreateObject.y
+  actor.sprite = atributesToCreateObject.sprite
   actor.width = atributesToCreateObject.width;
   actor.height = atributesToCreateObject.height;
   actor.velocity = atributesToCreateObject.velocity;

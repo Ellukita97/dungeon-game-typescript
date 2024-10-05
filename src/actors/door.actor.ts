@@ -17,4 +17,7 @@ export const doorActor = {
     });
 
   },
+  reset:function(){
+    this.actor = []
+  }
 };

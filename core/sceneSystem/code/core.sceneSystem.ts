@@ -1,7 +1,6 @@
 import { States } from "../data/scene.state";
 import { router } from "../data/scene.routes";
 import { routeElement } from "../../config.ts";
-import { currentsCollitions } from "../../collisionSystem/data/collision.state.ts";
 
 export function renderScene() {
   const scene = searchScene();
@@ -21,7 +20,7 @@ function searchSceneByName(nameScene: string) {
 
 export function changeScene(
   nameScene: string,
-  sendValueToAnotherScene: number | null = null
+  sendValueToAnotherScene: any
 ) {
   try {
     
@@ -30,7 +29,6 @@ export function changeScene(
       throw new Error("scene doesn't exist");
     if (sendValueToAnotherScene) States.Value = sendValueToAnotherScene;
     States.currentNamePath = nameScene;
-    currentsCollitions.splice(0, currentsCollitions.length);
     renderScene();
   } catch (error) {
     console.error(error);

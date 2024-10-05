@@ -41,11 +41,16 @@ export const generateGameObject = {
     const gameObjectHTMLElement = generateBox.create(gameObject);
     gameObjectHTMLElement.style.zIndex = zIndex;
 
-    if (sprite != "") {
-      gameObjectHTMLElement.style.backgroundImage = `url(${sprite})`;
-    } else {
-      gameObjectHTMLElement.style.backgroundColor = "red";
-    }
+    if (sprite == "") gameObjectHTMLElement.style.backgroundColor = "";
+
+    const spirteImageHTML = document.createElement("img");
+    spirteImageHTML.id = "SPRITE" + gameObject.id;
+    spirteImageHTML.src = `${sprite}`;
+    spirteImageHTML.style.position = "absolute";
+    spirteImageHTML.style.height = "300px";
+    spirteImageHTML.style.top = "-95px";
+    spirteImageHTML.style.left = "-80px";
+    gameObjectHTMLElement!.appendChild(spirteImageHTML);
 
     //generate colliction
     if (colliction)

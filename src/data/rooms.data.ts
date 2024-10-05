@@ -6,31 +6,35 @@ export const roomsData = [
     type: "main",
     doors: [
       {
-        doorId: 2,
+        doorId: 1,
+        playerSpawn: {
+          x: 245,
+          y: 60,
+        },
         width: 100,
         height: 100,
         x: 260,
         y: 0,
         position: "up",
+        nextDoorId: 3,
         nextRoomId: 2,
       },
       {
-        doorId: 3,
+        doorId: 2,
+        playerSpawn: {
+          x: 80,
+          y: 260,
+        },
         width: 100,
         height: 100,
         x: 0,
         y: 260,
         position: "left",
+        nextDoorId: 4,
         nextRoomId: 3,
       },
     ],
-    collition: {
-      default: {
-        name: "mapCollection",
-        length: 70,
-      },
-      new: [],
-    },
+    gameObectRoom: [],
   },
   {
     id: 2,
@@ -39,31 +43,30 @@ export const roomsData = [
     type: "enemy",
     doors: [
       {
-        doorId: 1,
+        doorId: 3,
+        playerSpawn: {
+          x: 240,
+          y: 290,
+        },
         width: 100,
         height: 100,
         x: 260,
         y: 400,
         position: "down",
+        nextDoorId: 1,
         nextRoomId: 1,
       },
     ],
-    collition: {
-      default: {
-        name: "mapCollection",
-        length: 70,
+    gameObectRoom: [
+      {
+        type: "enemy",
+        enemyId: 1,
       },
-      new: [
-        {
-          type: "enemy",
-          enemyId: 1,
-        },
-        {
-          type: "enemy",
-          enemyId: 2,
-        },
-      ],
-    },
+      {
+        type: "enemy",
+        enemyId: 2,
+      },
+    ],
   },
   {
     id: 3,
@@ -72,21 +75,20 @@ export const roomsData = [
     type: "main",
     doors: [
       {
-        doorId: 1,
+        doorId: 4,
+        playerSpawn: {
+          x: 480,
+          y: 200,
+        },
         width: 100,
         height: 100,
         x: 600,
         y: 200,
         position: "right",
+        nextDoorId: 2,
         nextRoomId: 1,
       },
     ],
-    collition: {
-      default: {
-        name: "mapCollection",
-        length: 70,
-      },
-      new: [],
-    },
+    gameObectRoom: [],
   },
 ];

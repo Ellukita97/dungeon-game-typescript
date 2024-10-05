@@ -1,4 +1,4 @@
 export const States = {
   currentNamePath: "",
-  Value: null as number | null,
+  Value: null as any | null,
 };

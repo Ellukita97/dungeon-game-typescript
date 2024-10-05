@@ -13,21 +13,23 @@ export function EventsRoom() {
         currentCollitionOverlapPlayer.id
       );
 
-      let currentDoomData;
+      let currentDoorData;
       for (let i = 0; i < roomsData.length; i++) {
         const room = roomsData[i];
 
-        if (room.id == States.Value) {
-          currentDoomData = room.doors.find(
+        if (room.id == States.Value.nextRoomId) {
+          currentDoorData = room.doors.find(
             (door) => door.doorId == getDoorElementId
           );
         }
       }
 
-      console.log(currentDoomData);
-      changeScene("ROOM", currentDoomData?.nextRoomId);
+      //console.log(currentDoorData);
+      changeScene("ROOM", {
+        nextRoomId: currentDoorData?.nextRoomId,
+        nextDoorId: currentDoorData?.nextDoorId,
+      });
       break;
-
     default:
       break;
   }

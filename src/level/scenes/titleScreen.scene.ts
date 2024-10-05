@@ -20,7 +20,10 @@ export const titleScreenScene = {
     const buttonStart = document.getElementById("start");
 
     buttonStart?.addEventListener("click", () => {
-      changeScene("ROOM",1);
+      changeScene("ROOM", {
+        nextRoomId: 1,
+        nextDoorId: null,
+      });
     });
   },
 };

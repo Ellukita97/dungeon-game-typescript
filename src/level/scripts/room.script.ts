@@ -10,6 +10,7 @@ import { updateForFrame } from "../../../core/mainLoop/mainLoop.code.ts";
 import { moveGameObject } from "../../../core/gameObjectSystem/scripts/moveObjectGame.script.ts";
 import { doorActor } from "../../actors/door.actor.ts";
 import { EventsRoom } from "../../code/eventRoom.code.ts";
+import { resetCurrentCollitions } from "../../../core/collisionSystem/data/collision.state.ts";
 
 export const room = {
   script: function () {
@@ -17,16 +18,36 @@ export const room = {
     const map = document.getElementById("map")!;
 
     //reset
-    doorActor.actor = []
+    resetCurrentCollitions();
+    doorActor.reset();
 
     //search room
-    const currentRoom = roomsData.find((room) => room.id === States.Value!);
+    const currentRoom = roomsData.find(
+      (room) => room.id === States.Value!.nextRoomId!
+    );
 
-    console.log(currentRoom);
+    //search door
+    let currentDoor;
+    for (let i = 0; i < roomsData.length; i++) {
+      const room = roomsData[i];
+      if (room.id == States.Value.nextRoomId) {
+        currentDoor = room.doors.find(
+          (door) => door.doorId == States.Value.nextDoorId
+        );
+      }
+    }
+
+    console.log(currentRoom?.type);
 
     //load
     roomActor.load(currentRoom);
-    playerActor.load(260, 260);
+    !currentDoor
+      ? playerActor.load(260, 260)
+      : playerActor.load(
+          currentDoor?.playerSpawn.x,
+          currentDoor?.playerSpawn.y
+        );
+
     doorActor.load(currentRoom?.doors!);
 
     //generate HTML
@@ -43,7 +64,7 @@ export const room = {
 
     updateForFrame(() => {
       //scripts
-      moveGameObject(playerActor.actor);
+      playerActor.update()
       EventsRoom();
 
       //generate HTML

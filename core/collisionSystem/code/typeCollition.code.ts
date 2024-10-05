@@ -21,6 +21,25 @@ export function squareCollisionBoxesRef(
   alignToTheSidesOfTheSquare(elementToSetCollicion);
 }
 
+export function squareCustomCollisionBoxes(
+  elementToSetCollicion: gameObjectClass,
+  box1: BoxClass,
+  box2: BoxClass,
+  box3: BoxClass,
+  box4: BoxClass
+) {
+  //create shape of box colliction
+  const Originalcolliction = [box1, box2, box3, box4];
+
+  //add colliction to elementToSetCollicion
+  Originalcolliction.map((col) => {
+    elementToSetCollicion.addColliction(
+      new BoxClass("collition", col.type, col.x, col.y, col.width, col.height)
+    );
+  });
+
+}
+
 export function squereCollectionCompleteSide(
   elementToSetCollicion: gameObjectClass,
   typeIdOfCollition: string,

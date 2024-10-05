@@ -3,4 +3,5 @@ export let controllerKeys = {
   down: "s",
   right: "a",
   left: "d",
+  attack:"j"
 };

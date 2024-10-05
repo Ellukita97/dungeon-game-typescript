@@ -14,7 +14,7 @@ export function overlaps(box1: BoxClass, box2: BoxClass) {
     : false;
 }
 
-export function checkCollition(gameObject: gameObjectClass) {
+export function check4sidedCollition(gameObject: gameObjectClass) {
   let currentCollition = null as BoxClass | null;
   let up = false;
   let down = false;

@@ -6,7 +6,9 @@ import "./style.css";
 const start = {
   startGame: () => {
     console.log("juego iniciado");
+
     mainLoop.iterate(0);
+
     keyboard.start();
     initScenes();
   },
